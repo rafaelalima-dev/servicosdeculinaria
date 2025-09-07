@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços de Culinária</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f8f8f8; color: #333; }
+
+    header {
+      background: #ec302d;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 3rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; }
+
+    nav {
+      background: #676866;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover { color: #ff6666; }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      color: #ec302d;
+    }
+
+    #produtos .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .card h3 { margin-bottom: 10px; color: #333; }
+    .card p { color: #676866; margin-bottom: 10px; }
+    .card span { font-weight: bold; color: #ec302d; }
+
+    #servicos ul {
+      list-style: none;
+      max-width: 700px;
+      margin: auto;
+    }
+    #servicos li {
+      background: #eee;
+      margin: 10px 0;
+      padding: 15px;
+      border-left: 5px solid #ec302d;
+    }
+
+    #contato {
+      text-align: center;
+    }
+    #contato a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      background: #ec302d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    #contato a:hover { background: #ec302d; }
+
+    footer {
+      background: #676866;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Serviços de Culinária</h1>
+    <p>Bolos, doces, salgados, kit festa, sobremesas e diversos pratos.</p>
+  </header>
+
+  <nav>
+    <a href="#produtos">PRODUTOS</a>
+    <a href="#servicos">SERVIÇOS</a>
+    <a href="#contato">CONTATO</a>
+  </nav>
+
+  <section id="produtos">
+    <h2>NOSSOS PRODUTOS</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="C:\Users\User\Documents\servicosdeculinaria\img/doces.jpg" alt="Doces">
+        <h3>Doces Variados</h3>
+        <p>Nossos doces são preparados com todo carinho para transformar a sua festa em um momento ainda mais especial. Dos clássicos brigadeiros e beijinhos até opções gourmet, oferecemos variedades que agradam a todos os paladares. Perfeitos para surpreender seus convidados e deixar a mesa de doces ainda mais bonita e saborosa.</p>
+        <span>A partir de R$ 130,00 - 100 unidades</span>
+      </div>
+    <div class="card">
+        <img src="C:\Users\User\Documents\servicosdeculinaria\img/bolo.jpg" alt="Bolo Personalizado">
+        <h3>Bolo Personalizado</h3>
+        <p>Um bolo que conquista você desde a primeira fatia. Feito com ingredientes selecionados que trazem equilíbrio perfeito entre cremosidade e sabor marcante. Nosso chantilly transforma cada pedaço em uma experiência única. É ideal para celebrar momentos especiais.
+        </p>        <span>A partir de R$ 35,00</span>
+      </div>
+      <div class="card">
+        <img src="C:\Users\User\Documents\servicosdeculinaria\img/salgados.jpg" alt="Salgados">
+        <h3>Salgados Variados</h3>
+        <p>Nossos salgados de aniversário são preparados com massa leve, recheios generosos e temperos irresistíveis, perfeitos para encantar seus convidados. Temos desde os clássicos como coxinhas e empadas até opções assadas, sempre fresquinhos e crocantes. Ideais para compor mesas de festas, eles unem sabor, qualidade e praticidade, garantindo um toque especial em cada celebração.</p>
+        <span>A partir de R$ 120,00 - 100 unidades</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <h2>SERVIÇOS</h2>
+    <div style="text-align: center;">
+    <img src="C:\Users\User\Documents\servicosdeculinaria\img/logo.png" alt="Logotipo" width="300" height="300">
+    </div>
+    <ul>
+      <li>Encomendas personalizadas para a sua festa.</li>
+      <li>Kit festa completo para o seu aniversário.</li>
+      <li>Sobremesas e pratos diversos para eventos.</li>
+    </ul>
+  </section>
+
+  <section id="contato">
+    <h2>ENTRE EM CONTATO</h2>
+    <p>Siga o nosso perfil nas redes sociais ou fale diretamente pelo WhatsApp:</p>
+    <a href="https://wa.me/5582996196277" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/servicosdeculinaria" target="_blank">Instagram</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Serviços de Culinária | Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
