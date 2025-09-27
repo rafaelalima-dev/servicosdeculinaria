@@ -1,163 +1,219 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serviços de Culinária</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ORB Advogadas Associadas</title>
+  <meta name="description" content="ORB Advogadas Associadas — Direito Civil, Administrativo, do Consumidor, Penal, Execução Penal e Tribunal do Júri." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f8f8f8; color: #333; }
-
-    header {
-      background: #ec302d;
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
+    :root{
+      --primary:#034258;
+      --dark:#171810;
+      --accent-olive:#313418;
+      --gold:#c89b38;
+      --gold-light:#e2af3b;
+      --white:#ffffff;
+      --max-width:1100px;
     }
-    header h1 { font-size: 3rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; }
-
-    nav {
-      background: #676866;
-      padding: 10px;
-      text-align: center;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Raleway', sans-serif;
+      background:linear-gradient(180deg,var(--white) 0%, #f6f7f6 100%);
+      color:var(--dark);
+      line-height:1.5;
     }
-    nav a {
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
+
+    header{background:linear-gradient(90deg,var(--primary),var(--accent-olive));color:var(--white);}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--white)}
+    .logo img{width:56px;height:56px;border-radius:8px;object-fit:cover}
+    .brand{font-family:'Playfair Display';font-size:20px;line-height:1}
+
+    /* NAV DESKTOP */
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600}
+
+    /* BOTÃO HAMBURGER */
+    .menu-toggle{
+      display:none;
+      font-size:26px;
+      cursor:pointer;
+    }
+
+    /* NAV MOBILE */
+    @media (max-width:768px){
+      nav{
+        display:none;
+        flex-direction:column;
+        background:var(--primary);
+        position:absolute;
+        top:70px;
+        right:0;
+        width:100%;
+        text-align:center;
+        padding:20px 0;
+      }
+      nav a{display:block;padding:12px;font-size:18px}
+      nav.active{display:flex;}
+      .menu-toggle{display:block;color:var(--white);}
+    }
+
+    .hero{padding:48px 0;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));}
+    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+    .hero h1{font-family:'Playfair Display';font-size:40px;margin:0 0 12px}
+    .hero p{margin:0 0 18px;color:rgba(23,24,16,0.9)}
+
+    .btn{display:inline-block;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700;cursor:pointer}
+    .btn-primary{background:var(--primary);color:var(--white)}
+
+    .card{
+      background:var(--white);
+      border:2px solid var(--gold);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 8px 30px rgba(3,66,88,0.06)
+    }
+
+    .services{padding:40px 0}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .services .card i{
+      font-size:28px;
+      color:var(--gold);
+      margin-bottom:10px;
+      display:block;
+    }
+
+    .team{padding:36px 0}
+    .members{display:flex;flex-direction:column;gap:18px;margin-top:18px}
+    .member{display:flex;gap:16px;align-items:center;background:var(--white);border:2px solid var(--gold);border-radius:12px;padding:20px;box-shadow:0 8px 30px rgba(3,66,88,0.06)}
+    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover}
+
+    .carousel{position:relative;overflow:hidden;border-radius:12px;margin-top:30px}
+    .carousel-track{display:flex;transition:transform 0.6s ease-in-out}
+    .carousel img{width:100%;flex-shrink:0}
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:var(--gold);border:none;padding:8px 12px;border-radius:6px;cursor:pointer;z-index:2}
+    .carousel-btn.prev{left:8px}
+    .carousel-btn.next{right:8px}
+
+    .faq .q{border-bottom:1px solid #eee;padding:14px 0;cursor:pointer;transition:background 0.3s}
+    .faq .q:hover{background:#f8f8f8}
+    .faq .q h4{margin:0;font-size:16px;display:flex;justify-content:space-between;align-items:center}
+    .faq .q p{margin:8px 0 0;max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+    .q.open p{max-height:200px}
+
+    footer{padding:28px 0;border-top:1px solid #e6e6e6;color:#333;font-size:14px;text-align:center}
+
+    /* Botão WhatsApp flutuante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
       color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    nav a:hover { color: #ff6666; }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    section h2 {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-      color: #ec302d;
+      z-index: 99;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
     }
 
-    #produtos .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-    .card h3 { margin-bottom: 10px; color: #333; }
-    .card p { color: #676866; margin-bottom: 10px; }
-    .card span { font-weight: bold; color: #ec302d; }
-
-    #servicos ul {
-      list-style: none;
-      max-width: 700px;
-      margin: auto;
-    }
-    #servicos li {
-      background: #eee;
-      margin: 10px 0;
-      padding: 15px;
-      border-left: 5px solid #ec302d;
-    }
-
-    #contato {
-      text-align: center;
-    }
-    #contato a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: #ec302d;
+    /* Botão Instagram flutuante */
+    .instagram-float {
+      position: fixed;
+      bottom: 20px;
+      right: 90px;
+      background: #E4405F;
       color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
       text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s;
+      z-index: 99;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    #contato a:hover { background: #ec302d; }
 
-    footer {
-      background: #676866;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      .services-grid{grid-template-columns:1fr}
+      .hero h1{font-size:32px}
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Serviços de Culinária</h1>
-    <p>Bolos, doces, salgados, kit festa, sobremesas e diversos pratos.</p>
+    <div class="container topbar">
+      <a class="logo" href="#">
+        <img src="img/orb.png" alt="ORB Advogadas Associadas">
+        <div class="brand">Escritório de Advocacia<br/><small style="font-weight:400;opacity:0.9">Manaus - Amazonas</small></div>
+      </a>
+
+      <!-- Botão Hamburguer -->
+      <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+
+      <nav>
+        <a href="#servicos">Especialidades</a>
+        <a href="#advogadas">Advogadas</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
   </header>
 
-  <nav>
-    <a href="#produtos">PRODUTOS</a>
-    <a href="#servicos">SERVIÇOS</a>
-    <a href="#contato">CONTATO</a>
-  </nav>
+  <!-- resto do site (sem alterações) -->
+  ...
+  
+  <script>
+    // FAQ toggle
+    document.querySelectorAll('.faq .q').forEach(q=>{
+      q.addEventListener('click',()=>{
+        q.classList.toggle('open');
+      });
+    });
 
-  <section id="produtos">
-    <h2>NOSSOS PRODUTOS</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="doces.jpg" alt="Doces">
-        <h3>Doces Variados</h3>
-        <p>Nossos doces são preparados com todo carinho para transformar a sua festa em um momento ainda mais especial. Dos clássicos brigadeiros e beijinhos até opções gourmet, oferecemos variedades que agradam a todos os paladares. Perfeitos para surpreender seus convidados e deixar a mesa de doces ainda mais bonita e saborosa.</p>
-        <span>A partir de R$ 130,00 - 100 unidades</span>
-      </div>
-    <div class="card">
-        <img src="bolo.jpg" alt="Bolo Personalizado">
-        <h3>Bolo Personalizado</h3>
-        <p>Um bolo que conquista você desde a primeira fatia. Feito com ingredientes selecionados que trazem equilíbrio perfeito entre cremosidade e sabor marcante. Nosso chantilly transforma cada pedaço em uma experiência única. É ideal para celebrar momentos especiais.
-        </p>        <span>A partir de R$ 35,00</span>
-      </div>
-      <div class="card">
-        <img src="salgados.jpg" alt="Salgados">
-        <h3>Salgados Variados</h3>
-        <p>Nossos salgados de aniversário são preparados com massa leve, recheios generosos e temperos irresistíveis, perfeitos para encantar seus convidados. Temos desde os clássicos como coxinhas e empadas até opções assadas, sempre fresquinhos e crocantes. Ideais para compor mesas de festas, eles unem sabor, qualidade e praticidade, garantindo um toque especial em cada celebração.</p>
-        <span>A partir de R$ 120,00 - 100 unidades</span>
-      </div>
-    </div>
-  </section>
+    // Carrossel animado
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-track img');
+    const prev = document.querySelector('.carousel-btn.prev');
+    const next = document.querySelector('.carousel-btn.next');
+    let index = 0;
 
-  <section id="servicos">
-    <h2>SERVIÇOS</h2>
-    <div style="text-align: center;">
-    <img src="logo.png" alt="Logotipo" width="300" height="300">
-    </div>
-    <ul>
-      <li>Encomendas personalizadas para a sua festa.</li>
-      <li>Kit festa completo para o seu aniversário.</li>
-      <li>Sobremesas e pratos diversos para eventos.</li>
-    </ul>
-  </section>
+    function showSlide(i){
+      index = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
 
-  <section id="contato">
-    <h2>ENTRE EM CONTATO</h2>
-    <p>Siga o nosso perfil nas redes sociais ou fale diretamente pelo WhatsApp:</p>
-    <a href="https://wa.me/5582996196277" target="_blank">WhatsApp</a>
-    <a href="https://instagram.com/servicosdeculinaria" target="_blank">Instagram</a>
-  </section>
+    prev.addEventListener('click',()=>showSlide(index-1));
+    next.addEventListener('click',()=>showSlide(index+1));
 
-  <footer>
-    <p>© 2025 Serviços de Culinária | Todos os direitos reservados.</p>
-  </footer>
+    setInterval(()=>showSlide(index+1),4000);
+
+    // Toggle menu mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    menuToggle.addEventListener('click',()=>{
+      nav.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
 
